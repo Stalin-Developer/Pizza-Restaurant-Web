@@ -1,0 +1,1813 @@
+/*Variables*/
+:root{
+    --primary-color: #fcb03b;
+    --secundary-color: #ab3a2b;
+    --color-Background: #eff6f5;
+    --primary-textColor: #a1a5a6;
+    --text-default: 'Open Sans';
+}
+
+
+/*General Styles.*/
+*{
+    margin: 0;
+    padding: 0;
+
+    /*The margin and the border won't affect the size of my box.*/
+    box-sizing: border-box;
+
+    font-family: var(--text-default);
+}
+
+
+/*We give a smooth vertical scroll.*/
+html{
+    scroll-behavior: smooth;
+}
+
+
+body{
+    background: var(--color-Background);
+}
+
+
+.title{
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+.subtitle{
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+
+.btn{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    background: var(--primary-color);
+    font-weight: 700;
+    padding: 15px 30px;
+
+    /*to delete an odd border that appears when click on the button.*/
+    border: 2px solid var(--primary-color);
+
+    cursor: pointer;
+
+    /*We move the button regarding to its original position.*/
+    position: relative;
+    top: 20px;
+
+    transition: all 0.3s;
+}
+
+
+
+/*Styles to the icon in the order button.*/
+.btn span{
+    padding-left: 10px;
+}
+
+
+
+.btn:hover{
+    padding: 15px 45px;
+}
+
+
+
+
+
+
+/*Styles for the main menu.*/
+.mainMenu{
+    width: 100%;
+    display: flex;
+
+    /*More space between elements.*/
+    justify-content: space-between;
+
+    /*We aling the items in the secondary axis.*/
+    align-items: center;
+
+    height: 75px;
+
+    /*Padding for top and botton. And for the sides.*/
+    padding: 0 30px;
+    margin-top: 20px;
+    background: var(--color-Background);
+
+    /*z-index is used to overlap elements.*/
+    z-index: 1;
+}
+
+
+.logo img{
+    width: 100px;
+    cursor: pointer;
+}
+
+
+/*We aling the elements of the menu-bar container.*/
+.menu-bar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+/*Styles for all links.*/
+.menu-bar .links{
+    /*We move the links a bit into the center.*/
+    transform: translateX(80%);
+}
+
+/*Styles for the navigation bar.*/
+.menu-bar .links ul li{
+    display: inline-block;
+    padding: 0 10px;    
+}
+
+/*Styles for each link.*/
+.menu-bar .links ul li a{
+    font-size: 18px;
+    text-transform: uppercase;
+
+    /*Remove underline.*/
+    text-decoration: none;
+
+    color: var(--primary-textColor);
+    font-weight: 600;
+
+
+    /*We apply a line effect under each link.*/
+    background: linear-gradient(currentColor, currentColor);
+    
+    /*Start position for x and y axes. It starts from the bottom.*/
+    background-position: 100% 100%;
+
+    /*We not want all background, only a line.*/
+    background-repeat: no-repeat;
+
+    background-size: 0% 2px;
+    transition: all 0.5s;
+
+}
+
+
+/*The line effect will appear afte a hover.*/
+.menu-bar .links ul li a:hover{
+    color: var(--secundary-color);
+
+    /*The line will increment its size till reach the 100%*/
+    background-size: 100% 2px;
+}
+
+
+/*Styles for the Menu icon of mobile screens.*/
+.mainMenu i{
+    cursor: pointer;
+    color: var(--primary-textColor);
+    font-size: 35px;
+
+    /*I always want that this appears on the right.*/
+    float: right;
+
+    /*The i elements like openMenu and closeMenu won't appear in full screen.*/
+    display: none;
+    
+}
+
+
+/*Hover for the Menu icon.*/
+.mainMenu i:hover{
+    color: var(--secundary-color);
+}
+
+
+
+
+/*Products Slider*/
+#menu-products .main-container{
+    display: flex;
+    align-items: center;
+
+    /*Trick.- This container we put position relative and its elements we put position absolute. 
+    We that, we make sure that its elements will respect the size of the container.*/
+    position: relative;
+
+    /*It is so that it does not truncate with my menu*/
+    z-index: 0;
+}
+
+/*Styles for both rows.*/
+.main-container #btn-left, .main-container #btn-right{
+    /*These elements will respect the size of the father container.*/
+    position: absolute;
+    height: 10%;
+    width: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 40px;
+
+    /*Margin above and under. And on the sides.*/
+    margin: 0 15px;
+
+    color: var(--secundary-color);
+
+    /*We make that the rows will appear over the others elements.
+    So when we do click, we do to the rows.*/
+    z-index: 500;
+
+    /*We remove the blue border. When we do click on the row.*/
+    outline: none;
+
+    transition: all 0.3s;
+}
+
+.main-container #btn-left:hover, .main-container #btn-right:hover{
+    background: #ab3a2b30;
+
+    /*Go down a little bit.*/
+    transform: translateY(5px);
+}
+
+.main-container #btn-left{
+    left: 0;
+}
+
+.main-container #btn-right{
+    right: 0;
+}
+
+/*This container contains all images and descriptions.*/
+.slider{
+    display: flex;
+
+    /*It hides the other sliders.*/
+    overflow: hidden;
+
+    /*The slider will occupy all height of the screen minus the 80px of the menu.*/
+    height: calc(100vh - 80px);
+
+    /*The scroll of the sliders will be with a transition.*/
+    scroll-behavior: smooth;
+}
+
+
+/*This container contains the description and the button.*/
+.container-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*The elements will have a basic size of 100%.*/
+    flex-basis: 100%;
+
+    /*All elements will have the same size. They won't decrease.*/
+    flex-shrink: 0;
+}
+
+/*Styles for product description.*/
+.description-products{
+    width: 30%;
+}
+.description-products h1{
+    /*With the unit viewport width. The size will adjusts when we reduce the size of the screen.*/
+    font-size: 5vw;
+
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.description-products p{
+    color: var(--primary-textColor);
+    font-style: italic;
+    text-align: justify;
+}
+
+
+/*Styles for the image of the product.*/
+.image-product{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+
+    /*We move the image into up a little bit.*/
+    transform: translateY(-7%); 
+}
+
+.image-product img{
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    /*We move it a little into the right. Because it was very near to the description.*/
+    right: -10%; 
+     
+    
+    transform: scale(1.25);
+    transition: all 0.6s;
+}
+
+.image-product img:hover{
+    transform: scale(1.35);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SECCION SERVICES*/
+#services{
+    height: 100vh;
+    background: #fff;
+    padding: 40px;
+}
+
+.services-titles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/*We are going to user grid layout for the image and features.*/
+.services-container{
+    /*We separate from the top.*/
+    margin-top: 30px;
+
+    display: grid;
+    
+    /*3 columns.*/
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+
+    /*Separation between columns and rows.*/
+    grid-gap: 30px;
+
+    /*We accommodate the image and features with a grid template area.*/
+    grid-template-areas: "ingredients   image   quickness"
+                         "quality       image   delivery";
+}
+
+
+/*We locate the elements in the grid area.*/
+.ingredients{
+    grid-row: ingredients;
+    grid-column: ingredients;
+}
+
+.quality{
+    grid-row: quality;
+    grid-column: quality;
+}
+
+.quickness{
+    grid-row: quickness;
+    grid-column: quickness;
+}
+
+.delivery{
+    grid-row: delivery;
+    grid-column: delivery;
+}
+
+.central-image{
+    grid-row: image;
+    grid-column: image;
+    transition: all 0.5s;
+}
+
+/*We add hover to the image.*/
+.central-image:hover{
+    transform: scale(1.1);
+}
+
+
+/*We add styles to the features.*/
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*The icon, the title and text will be one above other.*/
+    flex-direction: column;
+}
+
+
+/*Styles to the icons.*/
+.items span{
+    width: 95px;
+    font-size: 40px;
+    color: var(--secundary-color);
+    padding: 20px;
+
+    /*The double produces double borders.*/
+    border: 5px double #dedede;
+
+    /*We transform the squares into circles.*/
+    border-radius: 50%;
+
+    text-align: center;
+
+    transition: all 0.8s;
+}
+
+.items span:hover{
+    background: var(--secundary-color);
+    color: #fff;
+}
+
+/*We change the color of the features of the left side.*/
+.ingredients span, .quality span{
+    color: var(--primary-color);
+}
+
+.ingredients span:hover, .quality span:hover{
+    background: var(--primary-color);
+    color: #fff;
+}
+
+
+
+/*Styles to the titles and texts.*/
+.items .title-item{
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.items .text-item{
+    font-size: 14px;
+    color: var(--primary-textColor);
+    text-align: center;
+    font-style: italic;
+
+    /*Padding to the sides.*/
+    padding: 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*DELIVERIES SECCION*/
+#deliveries{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;      
+    
+    background: var(--color-Background);
+
+    /*Will respect the size of my container, no matter if we added a margin or padding.*/
+    box-sizing: border-box;
+}
+
+
+/*Container that has all images.*/
+.deliveriesImages{    
+    height: 25vh;
+    width: 100%;
+    display: inline-flex;
+
+    /*We want the images kinda separated.*/
+    justify-content: space-around;
+
+    /*We center the elements in the secundary axe.*/
+    align-items: center;
+    
+    /*We did this to avoid a horizontal scroll.*/
+    overflow: hidden;
+}
+
+/*Container that has the image.*/
+.deliveriesImages a{  
+    /*Trick part 1*/
+    position: relative;
+
+    /*With this width and height. 
+    We try to position the images in the vertical axe of its father container.
+    And get a good aspect radio of the images.*/
+    width: 15%;
+    height: 80%;
+
+    
+
+    /*We center the images in both the main axis and the secondary axis.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+
+
+
+.deliveriesImages a img{
+    /*Trick part 2. The images will respect its container size.*/
+    position: absolute;
+    
+    /*Will ocupy all space of its father container.*/
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15%;
+
+    transition: all 0.3s;    
+}
+
+/*Multiple transfors create an animation.*/
+@keyframes rotateAnimation {
+    0% {
+      transform: rotate(0deg); /*The image starts in its original position.*/
+    }
+    25% {
+      transform: rotate(15deg); /*It rotates 20 degrees in the first quarter of the animation.*/
+    }
+    50% {
+      transform: rotate(0deg); /*It come back to its original position in the half animation.*/
+    }
+    75% {
+      transform: rotate(-15deg); /*It rotates -20 degrees in the third quarter of the animation.*/
+    }
+    100% {
+      transform: rotate(0deg); /*It come back to its original position in the final state of the animation.*/
+    }
+}
+  
+.deliveriesImages a img:hover {
+    animation: rotateAnimation 4s infinite ease-in; /*It applies the animation during 4 seconds in a infinite manner.*/
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*GOOGLE MAPS SECCION.*/
+#googleMap{
+    height: 75vh;
+    width: 100%;
+
+    margin-top: 10vh;
+
+    /*Will respect the size of my container, no matter if we added a margin or padding.*/
+    box-sizing: border-box;
+
+    /*To aling the elements inside the container.*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*We give styles to the map.*/
+#googleMap #map{
+    height: 90%;
+    width: 90%;
+
+    /*to make up an odd border that appears when click on it.*/
+    border: 2px solid var(--color-Background);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*CONTACT SECCION.*/
+#contact{
+    height: 100vh;
+    padding: 60px;
+    position: relative;
+
+    background: #fff;
+}
+
+
+#form1{
+    width: 70%;
+
+    /*Separation from the title and the sides.
+    Margin above and below. And the sides.*/
+    margin: 50px auto;
+}
+
+
+/*Separation between the elements of the form.*/
+.two-fields{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*Styles to the elements of the form.*/
+.input-text, .input-email, .textarea{
+    border: 2px solid #9a9999;
+    background: var(--color-Background);
+    color: #818080;
+    outline: none;
+
+    /*Space between the internal text and the input.*/
+    padding: 15px 60px;
+
+    /*Height to the inputs.*/
+    height: 45px;
+
+    font-size: 16px;
+
+    /*We separate the name input and the text area.*/
+    margin-bottom: 20px;
+
+    /*We give a transition when the mouse is over the input.*/
+    transition: all 0.5s;
+
+}
+
+
+/*Styles to the text area.*/
+.textarea{
+    width: 100%;
+    height: 150px;
+
+    /*We don't let to the user to change the size of the text area.*/
+    resize: none;
+}
+
+
+/*Size of the father container of the inputs.*/
+.inputWithIcon{
+    position: relative;
+    width: 48%;
+}
+
+/*The name input and the email input will ocupy the 100% of the father container.*/
+.input-text, .input-email{
+    width: 100%;
+}
+
+/*The icon will be inside of its father container inputWithIcon*/
+.inputWithIcon i{
+    position: absolute;
+    left: 0px;
+
+    /*We adjust the icon inside the box.*/
+    padding: 14px 15px;
+    background: #888;
+    color: #fff;
+
+    transition: all 0.5s;
+}
+
+
+/*The text area wil ocupy the 100% width.*/
+.textareaIcon{
+    width: 100%;
+}
+
+/*We ajust the icon inside the text area.*/
+.textareaIcon i{
+    background: transparent;
+    color: #888;
+    padding: 0;
+    font-size: 25px;
+    left: 17px;
+    top: 13px;
+
+    transition: all 0.5s;
+}
+
+
+/*We add a transition to the inputs and the text area.*/
+.inputWithIcon input:focus, .inputWithIcon textarea:focus{
+    border: 2px solid var(--primary-color);
+}
+
+/*We add the transition to the icons as well.*/
+.inputWithIcon input:focus + i{
+    background: var(--primary-color);
+}
+.inputWithIcon textarea:focus + i{
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Stylized Alerts.*/
+.alerts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*Styles for each alert.*/
+.alert{
+    width: 60%;
+    padding: 20px 60px;
+
+    /*It doesn't move in your screen.*/
+    position: fixed;
+
+    top: 0;
+
+    /*When we hide or show the alerts.*/
+    transition: all 0.5s;
+}
+
+/*Styles for the icon of the alert.*/
+.alert .icon-alert{
+    position: absolute;
+    left: 20px;
+
+    /*We are centering it with respect to the y axe.*/
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 30px;
+}
+
+/*Style for the message of the alert.*/
+.alert .msg{
+    padding: 0 20px;
+    font-size: 18px;
+}
+
+
+/*Styles for the alertError.*/
+#alertError{
+    background: #f8d7da;
+    border-right: 4px solid #da3748;
+}
+#alertError .msg{
+    color: #721c24;
+}
+#alertError .icon-alert{
+    color: #da3748;
+}
+
+
+/*Styles for the alertSuccess.*/
+#alertSuccess{
+    background: #d4edda;
+    border-right: 4px solid #279e43;
+}
+#alertSuccess .msg{
+    color: #279e43;
+}
+#alertSuccess .icon-alert{
+    color: #155724;
+}
+
+
+
+
+/*Show Alert.*/
+.alert.show{
+    transform: translateY(50%);
+}
+
+/*Hide Alert*/
+.alert.hide{
+    /*It hides above the screen.*/
+    transform: translateY(-100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER SECCION*/
+/*Styles to the container that has the content.*/
+.containerContent{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+
+    
+    
+    /*This could serves us to apply responsive desing easily.*/
+    font-size: 1.7vw;
+
+    background: black;
+}
+
+
+/*We trying to separate the titles from the content.*/
+.containerContent h3{
+    margin-bottom: 3%;
+
+    color: #cacaca;
+}
+
+/*Styles for developer*/
+.footerContent #developer{
+    color: #001eff;
+    font-family: serif;
+    font-style: italic;
+}
+
+/*We try to move the content down a little from the title.*/
+.footerContent h4{
+    margin-top: 10%;
+
+    color: #cacaca;
+}
+
+
+
+/*We center the links.*/
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/*Styles for the links.*/
+.list li{
+    /*Vertical separation between the links.*/
+    margin-bottom: 8%;
+
+    /*We remove the default list style.*/
+    list-style-type: none;
+}
+
+.list li a{
+    /*Remove underline.*/
+    text-decoration: none;
+    color: #b39418;
+}
+
+
+
+/*Hover for each link.*/
+.list li a:hover{
+    color: #e8ba00;    
+}
+
+
+
+/*Styles for developer's icons.*/
+.meIcons{
+    display: flex;
+    justify-content: start;
+    padding-top: 5%;
+    /*all background*/
+    
+    
+}
+.meIcons a{
+    margin-right: 15%;
+}
+
+
+/*Margin for the email icon.*/
+.meIcons .modal-buton{
+    margin-right: 15%;
+}
+
+
+.meIcons i{
+    font-size: 150%;
+}
+
+/*Styles for each icon.*/
+/*Color for the email icon.*/
+.meIcons .modal-buton{
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+
+.meIcons a:nth-child(2){
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+.meIcons a:nth-child(3){
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+
+
+
+/*Styles on hover in each icon.*/
+/*Hover for the email icon.*/
+.meIcons .modal-buton:hover{
+    color: #b39418;
+    transform: scale(1.2);
+}
+
+.meIcons a:nth-child(2):hover{
+    color: #fff;
+    transform: scale(1.2);
+}
+.meIcons a:nth-child(3):hover{
+    color: #0077b5;
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+/*Styes for the third container.*/
+.footerContent3 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContent3 .pageIcons{
+    margin-top: 5%;
+}
+
+
+/*Styles for page's icons.*/
+.pageIcons{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+.pageIcons i{
+    font-size: 175%;
+}
+
+
+/*Styles for each icon.*/
+.pageIcons a:first-child{
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+.pageIcons a:nth-child(2){
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+.pageIcons a:nth-child(3){
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+.pageIcons a:nth-child(4){
+    color: #b8b8b8;
+    transition: all 0.5s;
+}
+
+
+/*Hover for each icon.*/
+.pageIcons a:first-child:hover{
+    color: #0866ff;
+    transform: scale(1.2);
+}
+.pageIcons a:nth-child(2):hover{
+    color: #FF086C;
+    transform: scale(1.2);
+}
+.pageIcons a:nth-child(3):hover{
+    color: #FF0000;
+    transform: scale(1.2);
+}
+.pageIcons a:nth-child(4):hover{
+    color: #fff;
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Styles for the copyrightBar.*/
+.copyrightBar{
+    background: var(--primary-color);
+
+    font-size: 2.4vh;
+
+    /*We place the sentence.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Styles for the paragraph.*/
+.copyrightBar p{
+    padding: 0.5% 0%;
+}
+
+
+/*Styles for the link of copyrightBar.*/
+.copyrightBar a{
+    /*Remove underline.*/
+    text-decoration: none;
+
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Styles for the modal window.*/
+/*We disappear the check input.*/
+#btn-modal{
+    display: none;
+}
+
+/*Styles for the container of the window modal.*/
+.container-modal{
+    width: 100%;
+    height: 100vh;
+
+    /*Glued to the screen.*/
+    position: fixed;
+
+    /*The content will be in the beginning in the screen.*/
+    top: 0; left: 0;
+
+    background-color: rgba(144, 148, 150, 0.8);
+
+
+    /*in the modal window it will start hidden*/
+    display: none;
+
+    /*Now our content will be center in the middle.*/
+    justify-content: center;
+    align-items: center;
+
+    /*We make sure that our modal container will be over others elements.*/
+    z-index: 500;
+}
+
+/*Styles for the window of the content.*/
+.content-modal{
+    width: 100%;
+    
+    /*If the screen is very wide. Then the window only will have this max width.*/
+    max-width: 400px;
+
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/*Styles for the content.*/
+.container-modal h3{
+    margin-bottom: 7px;
+}
+
+/*Styles for the input.*/
+.container-modal input{
+    outline: none;
+}
+
+
+/*Styles for the checked icon.*/
+.container-modal i{
+    color: rgb(2, 208, 2);
+    transform: translateY(10%);
+    display: none;
+}
+
+
+/*Styles for the buttons.*/
+.container-modal .buttons-modal{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*Styles for the button close.*/
+.content-modal .btn-close{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+.container-modal .btn-close label{
+    padding: 7px 10px;
+    background-color: #2391ff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.container-modal .btn-close label:hover{
+    background-color: #1b7ad8;
+}
+
+/*Styles for the button copy.*/
+.content-modal .btn-copy{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+.container-modal .btn-copy label{
+    padding: 7px 10px;
+    background-color: #2391ff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.container-modal .btn-copy label:hover{
+    background-color: #1b7ad8;
+}
+
+
+
+/*Close and open the window modal.*/
+/*All this is related with the input check*/
+#btn-modal:checked ~ .container-modal{
+    display: flex;
+}
+
+
+/*Close window modal when we do click on the background.*/
+.close-background{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0; left: 0;
+
+    /*It is so that it does not cover our modal window*/
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Styles for button to go up.*/
+#btn-top{
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    cursor: pointer;
+
+    /*It is fixed in the screen.*/
+    position: fixed;
+
+    /*We place the button in this part of the screen.*/    
+    bottom: 20px;
+    right: 20px;
+
+    /*It will be over others elements.*/
+    z-index: 1;
+
+    /*If we are in the top part of the page. The button will be hide.*/
+    transform: translateY(200%);
+
+    transition: all 0.5s;
+}
+
+/*More styles to the botton.*/
+#btn-top span{
+    color: #fff;
+    font-size: 25px;
+    width: 100%;
+
+    /*We aling it in the horizontal way.*/
+    text-align: center;
+
+    /*We aling it in the vertical way.*/
+    line-height: 50px;
+
+    transition: all 0.5s;
+}
+
+/*Hover for the button.*/
+#btn-top:hover{
+    background: #d89127;
+}
+#btn-top:hover span{
+    transform: translateY(-3px);
+}
+
+
+/*Show the hide button.*/
+#btn-top.show{
+    transform: translateY(0);
+}
+
+/*Move the button up above the footer.*/
+#btn-top.scrollFinal{
+    transform: translateY(-13vw);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*MEDIA QUERYS*/
+/*Media Query 850px.*/
+@media screen and (max-width: 850px) {
+    /*Menu fixed*/
+    .mainMenu{
+        position: fixed;
+
+        /*The menu will be fixed in the top position.*/
+        top: 0;
+
+        margin-top: 14px;
+    }
+
+    /*The i elements will appear in mobile screen.*/
+    .mainMenu i{
+        display: block;
+    }
+
+    /*We remove the translation that we made to the navigation bar.*/
+    .menu-bar .links{
+        transform: translateX(0%);
+    }
+
+    /*The languageSelector is centered. But we don't see all, only the selector.
+    So we have to translate it.*/
+    .menu-bar .languageSelector{
+        transform: translateX(-30%);
+    }
+
+
+    /*Mobile Menu.*/
+    .menu-bar{
+        /*The elements are one above the other.*/
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+
+        /*Height 100% of my screen.*/
+        height: 100vh;
+
+        /*With position fixed we tell it that it will occupy all my screen.*/
+        position: fixed;
+        right: 0;
+        top: 0;
+
+        /*We are going to create a layer far in front of the others.
+        So we make sure that element will be in front of any other element.*/
+        z-index: 1000;
+        background: #333;
+
+        /*The menu will move from left to right.*/
+        transform: translateX(100%);
+
+        /*Transition when the mobile menu opens and closes.*/
+        transition: all 0.8s;
+    }
+
+
+    /*The window modal will be over everything, even the mobile menu.*/
+    .container-modal{
+        z-index: 1001;
+    }
+
+
+
+
+
+
+    /*When the user do click on the menu icon.
+    The menu will appear.
+    we do that with the class active.*/
+    .menu-bar.active{
+        transform: translateX(0%);
+    }
+
+
+    /*We position the closeMenu icon to the right respect to its father container.*/
+    .menu-bar i{
+        position: absolute;
+        right: 50px;
+        top: 50px;
+    }
+
+    /*We place the links on top of each other.*/
+    .menu-bar .links ul li{
+        display: block;
+        padding: 25px 10px;
+        text-align: center;
+    }
+
+
+    /*We increment the font size of the links.*/
+    .menu-bar .links ul li a{
+        font-size: 25px;
+    }
+
+
+
+
+
+
+    
+    /*SERVICES SECCION.*/    
+    /*We change the grid area and delete the image.*/
+    .services-container{
+        margin-top: 50px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "ingredients   quickness"
+                             "quality       delivery";
+    }
+
+    .central-image{
+        display: none;
+    }
+
+
+
+    /*Deliveries Seccion.*/
+    .deliveriesImages{    
+        height: 17vh;        
+    }
+    .deliveriesTitle .title{
+        font-size: 25px;
+    }
+
+
+
+
+
+
+
+
+    /*GOOGLE MAPS SECCION.*/
+    #googleMap{
+        margin-top: 7vh;
+    }
+
+    .mapTitle .title{
+        font-size: 25px;
+    }
+
+
+
+
+
+
+
+
+    /*ALERTS.*/
+    .alert{
+        width: 100%;
+    }
+
+    /*When the alert shows we make it down a little more.*/
+    .alert.show{
+        transform: translateY(150%);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /*FOOTER SECCION.*/
+    .containerContent{
+        /*This could serves us to apply responsive desing easily.*/
+        font-size: 2.2vw;
+    
+    }
+
+    /*Styles for the copyrightBar.*/
+    .copyrightBar{
+        font-size: 2vh;
+    }
+
+
+
+
+
+
+
+
+    /*BUTTON UP*/
+    /*Move the button up above the footer.*/
+    #btn-top.scrollFinal{
+        transform: translateY(-17vw);
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Media Query 750pxs.*/
+@media screen and (max-width: 750px) {
+    /*To respect the height of the main menu is no necessary. Because the menu is fixed.*/
+    .slider{
+        height: calc(100vh - 0px);
+        
+    }
+
+    /*New direction for the elements of the slider.*/
+    .container-products{
+        flex-direction: column;
+    }
+
+    /*Styles for the image.*/
+    .image-product {
+        transform: translateY(5%);
+    }
+
+    .image-product img{
+        transform: scale(2);
+        position: relative;
+
+        /*Here we center the image.*/
+        right: 0%;
+    }
+
+    .image-product img:hover{
+        transform: scale(2.15);
+    }
+
+
+    /*Stlyles for the description of the product.*/
+    .description-products {
+        position: relative;
+        top: 20%;
+        width: 70%;
+        order: 1;
+    }
+
+
+    /*We reduce the size of the button.*/
+    .description-products .btn{
+        padding: 10px 20px;
+    }
+    .description-products .btn:hover{
+        padding: 10px 30px;
+    }
+
+
+
+
+
+
+    /*DELIVERIES SECCION.*/
+    .deliveriesImages{    
+        height: 10vh;        
+    }
+
+
+
+
+
+    /*GOOGLE MAPS SECCION.*/
+    #googleMap{
+        margin-top: 5vh;
+    }
+
+
+
+
+
+
+    /*CONTACT SECCION*/
+    #form1{
+        width: 100%;
+    }
+
+    .two-fields{
+        flex-direction: column;
+    }
+
+    .inputWithIcon{
+        width: 100%;
+    }
+
+
+
+
+
+
+
+
+
+    /*FOOTER SECCION.*/
+    /*Styles for the copyrightBar.*/
+    .containerContent{
+        /*This could serves us to apply responsive desing easily.*/
+        font-size: 2.5vw;
+    
+    }
+
+    .copyrightBar{
+        font-size: 1.4vh;
+    }  
+    
+    
+
+
+
+
+    /*MODAL WINDOW*/
+    /*We reduce the width of content window for the mobiles screens.*/
+    .content-modal{
+        width: 90%;
+    }
+
+
+
+
+
+    /*BUTTON UP*/
+    /*Move the button up above the footer.*/
+    #btn-top.scrollFinal{
+        transform: translateY(-20vw);
+    }
+
+
+}
+
+

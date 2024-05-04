@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciao Pizza</title>
+
+
+
+
+
+    <!--We hide some unwanted elements from google translate.-->
+    <style>
+        /*Hides the top bar.*/
+        .VIpgJd-ZVi9od-ORHb-OEVmcd{
+            display: none;
+    
+        
+        }
+        
+        /*It hides the image of the SIMPLE layout.*/
+        .goog-te-gadget-simple img{
+            display: none !important;
+        }
+
+
+    
+        /*These styles help to hide more elements.*/
+        #google_translate_element{width:300px;float:right;text-align:right;display:block;}
+        .goog-te-banner-frame.skiptranslate { display: none !important;} 
+        body { top: 0px !important; }
+        #goog-gt-tt{display: none !important; top: 0px !important; } 
+        .goog-tooltip skiptranslate{display: none !important; top: 0px !important;} 
+        .activity-root { display: hide !important;} 
+        .status-message { display: hide !important;}
+        .started-activity-container { display: hide !important;}
+
+
+
+
+
+
+        /*Differents styles to accommodate the language selector in the page.*/
+        .languageSelector .goog-te-gadget-simple{
+            background: #ced1d1;
+            
+
+            /*Change the size of the selector.*/
+            transform: scale(0.9);
+        }
+                  
+        .goog-te-gadget-simple span{
+            color: #585858;
+        }
+
+    </style>
+
+
+
+
+
+
+    <!--We link our style sheet.-->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--We link our fontawesome.-->
+    <link rel="stylesheet" href="lib/fontawesome-free-6.5.1-web/css/all.min.css">
+
+    <!--We link the logo to the web page tab.-->
+    <link rel="shortcut icon" href="img/logo.png">
+    
+</head>
+<body>
+    <!--Main Menu.-->
+    <div class="mainMenu">
+        <!--div for logo.-->
+        <div class="logo" id="logo">
+            <img src="img/logo.png" alt="logo">
+        </div>
+
+
+        <!--div for navigation bar.-->
+        <div class="menu-bar" id="menuBar">
+            <!--Icon to close the menu mobile.-->
+            <i class="fas fa-angle-right" id="menuClose"></i>
+
+
+            <nav class="links" id="links">
+                <ul>
+                    <!--The # is for to not redirect.-->
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#googleMap">Address</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+
+            <!--Language selector-->            
+            <!--We add an expansion for google translate.
+            We put it in this location because We wanted it in the right part of menu.-->
+            <span class="languageSelector" id="google_translate_element"></span>
+                
+            
+        </div>
+
+
+        <!--Menu icon for mobile screens.-->
+        <i class="fas fa-bars" id="btnMenuOpen"></i>
+    </div>
+
+
+
+    <!--Product Slider.-->
+    <section id="menu-products">
+        <div class="main-container">
+            <button id="btn-left"><span class="fas fa-angle-left"></span></button>
+
+
+            <!--Slider.-->
+            <div class="slider">
+                <!--Product container.-->
+                <div class="container-products">
+                    <!--Product description container.-->
+                    <div class="description-products">
+                        <h1>Margheritta</h1>
+                        <p>Indulge in the classic flavors of Italy with our Margherita pizza. Made with the finest tomatoes, fresh mozzarella, 
+                        and fragrant basil on a crisp, golden crust, each bite is a taste of culinary perfection. 
+                        Savor simplicity at its finest with our Margherita pizza!</p>
+
+                        <button class="btn">Order Here! <span class="fas fa-angle-right"></span></button>
+                    </div>
+
+
+                    <!--picture container.-->
+                    <div class="image-product">
+                        <img src="img/Menu/Margheritta.png" alt="">
+                    </div>
+
+                </div>
+
+                
+
+
+
+                <!--Product container.-->
+                <div class="container-products">
+                    <!--Product description container.-->
+                    <div class="description-products">
+                        <h1>Pepperoni</h1>
+                        <p>Satisfy your cravings with our mouthwatering Pepperoni pizza! Loaded with savory slices of pepperoni atop gooey mozzarella 
+                        and tangy tomato sauce, it's a flavor explosion in every bite. Treat yourself to a slice of perfection with our Pepperoni pizza</p>
+
+                        <button class="btn">Order Here! <span class="fas fa-angle-right"></span></button>
+                    </div>
+
+
+                    <!--picture container.-->
+                    <div class="image-product">
+                        <img src="img/Menu/Pepperoni.png" alt="">
+                    </div>
+
+                </div>
+
+                
+
+
+
+                <!--Product container.-->
+                <div class="container-products">
+                    <!--Product description container.-->
+                    <div class="description-products">
+                        <h1>Funghi</h1>
+                        <p>Delight your taste buds with our exquisite Funghi pizza! Overflowing with earthy mushrooms, 
+                        rich melted cheese, and a hint of garlic, it's a culinary adventure you won't want to miss. 
+                        Experience the irresistible flavors of Italy with our Funghi pizza!</p>
+
+                        <button class="btn">Order Here! <span class="fas fa-angle-right"></span></button>
+                    </div>
+
+
+                    <!--picture container.-->
+                    <div class="image-product">
+                        <img src="img/Menu/Funghi.png" alt="">
+                    </div>
+
+                </div>
+
+                
+
+
+
+                <!--Product container.-->
+                <div class="container-products">
+                    <!--Product description container.-->
+                    <div class="description-products">
+                        <h1>Fugazza</h1>
+                        <p>Experience the authentic taste of Argentina with our tantalizing Fugazza pizza! Topped with sweet caramelized onions 
+                        and a sprinkle of herbs, it's a flavorful journey you won't forget. Transport your senses to Buenos Aires with every delicious 
+                        bite of our Fugazza pizza!</p>
+
+                        <button class="btn">Order Here! <span class="fas fa-angle-right"></span></button>
+                    </div>
+
+
+                    <!--picture container.-->
+                    <div class="image-product">
+                        <img src="img/Menu/Fugazza.png" alt="">
+                    </div>
+
+                </div>
+
+                
+
+
+
+                <!--Product container.-->
+                <div class="container-products">
+                    <!--Product description container.-->
+                    <div class="description-products">
+                        <h1>Napolitana</h1>
+                        <p>Transport yourself to the streets of Naples with our irresistible Napolitana pizza! 
+                        Crafted with San Marzano tomatoes, creamy mozzarella, and fragrant basil atop a traditional thin crust, 
+                        it's a true taste of Italy's culinary heritage. Indulge in the authentic flavors of Napoli with our Napolitana pizza!</p>
+
+                        <button class="btn">Order Here! <span class="fas fa-angle-right"></span></button>
+                    </div>
+
+
+                    <!--picture container.-->
+                    <div class="image-product">
+                        <img src="img/Menu/Napolitana.png" alt="">
+                    </div>
+                    
+                </div>
+
+                
+
+            </div>
+
+
+
+            <button id="btn-right"><span class="fas fa-angle-right"></span></button>
+        </div>
+    </section>
+
+
+
+    <!--Services Section-->
+    <section id="services">
+        <div class="services-titles">
+            <h2 class="subtitle">The Best Pizza of the World</h2>
+            <h1 class="title">Welcome to Ciao Pizza</h1>
+        </div>
+
+        <div class="services-container">
+            <div class="central-image">
+                <img src="img/half-half.png" alt="">
+            </div>
+
+
+            <!--The features of the restaurant.-->
+            <div class="items quality">
+                <p><span class="fas fa-pizza-slice"></span></p>
+                <p class="title-item">Quality</p>
+                <p class="text-item">We pay attention to details, resulting in high quality pizzas.</p>
+            </div>
+
+            <div class="items ingredients">
+                <p><span class="fas fa-cheese"></span></p>
+                <p class="title-item">Ingredients</p>
+                <p class="text-item">Fresh, locally-sourced ingredients create flavors that delight taste buds.</p>
+            </div>
+
+            <div class="items quickness">
+                <p><span class="fas fa-clock"></span></p>
+                <p class="title-item">Quickness</p>
+                <p class="text-item">Our efficient service ensures your pizza is served hot and fresh promptly.</p>
+            </div>
+
+            <div class="items delivery">
+                <p><span class="fas fa-shipping-fast"></span></p>
+                <p class="title-item">Delivery</p>
+                <p class="text-item">Our swift delivery ensures piping hot pizzas at your doorstep, pronto!</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+    <!--Deliveries Seccion-->
+    <section id="deliveries">
+        <div class="deliveriesTitle">            
+            <h1 class="title">Order Online</h1>
+        </div>
+
+        <!--Deliveries images.-->
+        <div class="deliveriesImages">          
+                
+            <a href="https://www.ubereats.com" target="_blank">
+                <img src="img/Deliveries/uber.jpg" alt="order by uber eats" class="deliveryImage">
+            </a>           
+            
+            
+            <a href="https://about.rappi.com/" target="_blank">
+                <img src="img/Deliveries/rappi.jpg" alt="order by rappi" class="deliveryImage">
+            </a>
+            
+
+            <a href="https://www.pedidosya.com/" target="_blank">
+                <img src="img/Deliveries/pedidosya.jpg" alt="order by pedidos ya" class="deliveryImage">
+            </a>
+            
+                
+            <a href="https://www.doordash.com/" target="_blank">
+                <img src="img/Deliveries/doordash.jpg" alt="order by doordash" class="deliveryImage">
+            </a>
+
+
+            
+        </div>
+    
+    </section>
+
+
+
+
+
+    <!--Google Maps Seccion-->
+    <section id="googleMap">
+        <div class="mapTitle">            
+            <h1 class="title">Find Us</h1>
+        </div>
+
+
+        <!--Map
+        Google in the page of google maps they let you to share a location in your web page. It's a good one from google.-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7476828623026!2d-78.12235812546622!3d0.340941063988801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e2a3ccfadff799f%3A0xafd91ae86250879c!2sInstituto%20Tecnologico%20Superior%20Ibarra!5e0!3m2!1ses-419!2sec!4v1713019025161!5m2!1ses-419!2sec" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="map"></iframe>
+        
+    </section>
+
+
+
+
+
+
+
+    <!--Contact Seccion.-->
+    <section id="contact">
+        <div class="title-contact">
+            <h2 class="subtitle">We want to Know your opinion</h2>
+            <h1 class="title">Contact US</h1>
+        </div>
+
+        <form action="" id="form1">
+            <!--Two inputs.-->
+            <div class="two-fields">
+                <div class="inputWithIcon">
+                    <input type="text" id="name" name="name" class="input-text" placeholder="Name">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="inputWithIcon">
+                    <input type="email" id="email" name="email" class="input-email" placeholder="Email">
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+            </div>
+
+
+            <!--Text Area.-->
+            <div class="textArea1">
+                <div class="inputWithIcon textareaIcon"> <!--We create two classes at once.-->
+                    <textarea name="comments" id="comments" class="textarea" placeholder="Enter your message ......."></textarea>
+                    <i class="fas fa-comments"></i>
+                </div>
+            </div>
+
+
+            <!--Button Send-->            
+            <div class="sendButton">
+                <input type="submit" class="btn btn-input" value="Send">
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+
+
+
+
+
+    <!--Stylized Alerts.-->
+    <div class="alerts">
+        <!--Error alert.-->
+        <div id="alertError" class="alert hide">
+            <span class="icon-alert fas fa-exclamation-circle"></span>
+            <span class="msg">Error: One or more fields are empty.</span>
+        </div>
+
+
+        <!--Success alert.-->
+        <div id="alertSuccess" class="alert hide">
+            <span class="icon-alert fas fa-check-circle"></span>
+            <span class="msg">Data Sent! Thanks for contact us.</span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!--Footer Seccion.-->
+    <footer>
+        <div class="containerContent">
+            <!--Part 1-->
+            <div class="footerContent">
+                <h3>Stalin <span id="developer">Developer</span></h3>
+                <h4>Contact me:</h4>
+                <div class="meIcons">
+                    <!--We are going to show our email in a modal window.-->
+                    <div class="modal-buton">
+                        <label for="btn-modal">
+                            <i class="fa-regular fa-envelope"></i>
+                        </label>
+                    </div>
+
+
+                    <a href="https://github.com/Stalin-Developer"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/stalin-developer"><i class="fab fa-linkedin"></i></a>
+                </div>
+                
+            </div>
+
+
+            <!--Part 2-->
+            <div class="footerContent">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="#menu-products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#deliveries">Delivery</a></li>
+                </ul>
+            </div>
+
+
+            <!--Part 3-->
+            <div class="footerContent3">
+                <h3>Follow Us</h3>
+                <div class="pageIcons">
+                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                
+            </div>
+
+        </div>
+
+        <!--Copyright-->
+        <div class="copyrightBar">
+            <!--The placeholder is for put the year dynamically with javascript.-->
+            <p>© <span id="year-placeholder"></span> <a href="https://www.linkedin.com/in/stalin-developer">Stalin Developer.</a> All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Modal window for the developer's email.-->
+    <!--The input wil help us to show and hide the window modal only using css.-->
+    <input type="checkbox" id="btn-modal">
+    <div class="container-modal">
+        <div class="content-modal">
+            <h3>Stalin Developer Email:</h3>
+            
+            <!--With the readonly the user won't can edit it.-->
+            <input type="text" class="text" value="leonelstalin94@gmail.com" readonly>
+            <i class="fa-solid fa-circle-check"></i>
+
+            <!--Buttons-->
+            <div class="buttons-modal">
+                <!--Copy button.-->
+                <div class="btn-copy">
+                    <!--The for property helps us to make a relation with the input.-->
+                    <label for="text">Copy</label>
+                </div>
+
+                <!--Close button.-->
+                <div class="btn-close">
+                    <!--The for property helps us to make a relation with the input.-->
+                    <label for="btn-modal">Close</label>
+                </div>
+            </div>
+            
+        </div>
+
+        <!--Background that serves us to close the window modal as well.-->
+        <label for="btn-modal" class="close-background"></label>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Button to go up.-->
+    <div id="btn-top">
+        <span class="fas fa-angle-up"></span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    <!--We are importing the google translate into our page.-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({includedLanguages:'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    
+
+
+
+    <!--We import our javascript file.-->
+    <script src="js/app.js"></script>
+
+
+</body>
+</html>
